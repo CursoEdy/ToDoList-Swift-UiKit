@@ -8,12 +8,18 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var topTitleView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        topTitleView.clipsToBounds = true
+        topTitleView.layer.cornerRadius = 15
+        topTitleView.layer.maskedCorners = [
+            .layerMinXMaxYCorner, .layerMaxXMaxYCorner
+        ]
     }
-
-
+    
+    
 }
-
