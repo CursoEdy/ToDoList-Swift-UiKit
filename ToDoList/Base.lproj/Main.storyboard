@@ -26,6 +26,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <viewLayoutGuide key="safeArea" id="0Gv-hY-8bX"/>
                                 <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="bYD-kZ-NrT" firstAttribute="centerX" secondItem="OkF-zu-DbM" secondAttribute="centerX" id="cfZ-AH-rMu"/>
