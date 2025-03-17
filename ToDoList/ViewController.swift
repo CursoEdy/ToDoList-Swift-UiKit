@@ -17,6 +17,7 @@ class ViewController: UIViewController {
         button.tintColor = .white
         button.setImage(UIImage(systemName: "plus"), for: .normal)
         button.imageView?.layer.transform = CATransform3DMakeScale(1.4 , 1.4, 1.4)
+        button.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -44,6 +45,11 @@ class ViewController: UIViewController {
         addButton.frame = CGRect(x: xPos, y: yPos, width: width, height: height)
         addButton.layer.cornerRadius = width / 2
         
+    }
+    
+    @objc func addButtonTapped() {
+        let newTaskViewController = NewTaskViewController()
+        present(newTaskViewController, animated: true)
     }
 }
 
