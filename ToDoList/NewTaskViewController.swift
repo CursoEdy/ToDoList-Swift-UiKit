@@ -10,7 +10,10 @@ import UIKit
 class NewTaskViewController: UIViewController {
     
     lazy var modelView: NewTaskModelView = {
-        let modelView = UINib(nibName: "NewTaskModelView", bundle: nil).instantiate(withOwner: nil)[0] as! NewTaskModelView
+        let modelWidth = view.frame.width - CGFloat(30)
+        let modelHeight: CGFloat = 400
+        let frame = CGRect(x: 15, y: view.center.y - (modelHeight / 2), width: modelWidth, height: modelHeight)
+        let modelView = NewTaskModelView(frame: frame)
         return modelView
     }()
     
@@ -28,9 +31,6 @@ class NewTaskViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.9)
         view.addSubview(modelView)
-        let modelWidth = view.frame.width - CGFloat(30)
-        let modelHeight: CGFloat = 400
-        modelView.frame = CGRect(x: 15, y: view.center.y - (modelHeight / 2), width: modelWidth, height: modelHeight)
     }
 
 }
