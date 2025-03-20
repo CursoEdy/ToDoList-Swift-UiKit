@@ -10,10 +10,15 @@ import SwiftUI
 
 class NewTaskModelView: UIView {
 
-    @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet weak var categoryPickerView: UIPickerView!
-    @IBOutlet weak var submitButtom: UIButton!
-    @IBOutlet var contentView: UIView!
+    @IBOutlet private weak var descriptionTextView: UITextView!
+    @IBOutlet private weak var categoryPickerView: UIPickerView!
+    @IBOutlet private weak var submitButtom: UIButton!
+    @IBOutlet private var contentView: UIView!
+    
+    var caption: String {
+        get { return descriptionTextView.text ?? "" }
+        set { descriptionTextView.text = newValue }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,20 +43,24 @@ class NewTaskModelView: UIView {
         categoryPickerView.dataSource = self
         categoryPickerView.delegate = self
         categoryPickerView.selectRow(1, inComponent: 0, animated: true)
-        contentView.layer.cornerRadius = 5
         
         contentView.frame = bounds
         addSubview(contentView)
     }
+    
+    override func layoutSubviews() {
+        contentView.layer.cornerRadius = 5
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        print("teste to see it this is called.")
     }
     
     @IBAction func submit(_ sender: Any) {
     }
     
     @IBAction func close(_ sender: Any) {
-        UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true, completion: nil)
     }
 }
 
