@@ -31,6 +31,7 @@ class NewTaskModelView: UIView {
     }
     
     @IBAction func close(_ sender: Any) {
+        UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true, completion: nil)
     }
 }
 
