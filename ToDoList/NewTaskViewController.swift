@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol NewTaskDelegate: AnyObject {
+    func closeView()
+}
+
 class NewTaskViewController: UIViewController {
     
     lazy var modelView: NewTaskModelView = {
@@ -14,6 +18,7 @@ class NewTaskViewController: UIViewController {
         let modelHeight: CGFloat = 400
         let frame = CGRect(x: 15, y: view.center.y - (modelHeight / 2), width: modelWidth, height: modelHeight)
         let modelView = NewTaskModelView(frame: frame)
+        modelView.delegate = self
         return modelView
     }()
     
@@ -32,5 +37,12 @@ class NewTaskViewController: UIViewController {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.9)
         view.addSubview(modelView)
     }
+}
 
+
+//MARK: New task delegate
+extension NewTaskViewController: NewTaskDelegate {
+    func closeView() {
+        dismiss(animated: true)
+    }
 }

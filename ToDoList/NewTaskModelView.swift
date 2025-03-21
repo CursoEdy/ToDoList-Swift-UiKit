@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 class NewTaskModelView: UIView {
 
@@ -14,6 +13,7 @@ class NewTaskModelView: UIView {
     @IBOutlet private weak var categoryPickerView: UIPickerView!
     @IBOutlet private weak var submitButtom: UIButton!
     @IBOutlet private var contentView: UIView!
+    weak var delegate: NewTaskDelegate?
     
     var caption: String {
         get { return descriptionTextView.text ?? "" }
@@ -52,15 +52,16 @@ class NewTaskModelView: UIView {
         contentView.layer.cornerRadius = 5
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        print("teste to see it this is called.")
-    }
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//        print("teste to see it this is called.")
+//    }
     
     @IBAction func submit(_ sender: Any) {
     }
     
     @IBAction func close(_ sender: Any) {
+        delegate?.closeView()
     }
 }
 
